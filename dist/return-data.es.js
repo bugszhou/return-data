@@ -52,7 +52,7 @@ var BaseReturn = /** @class */ (function () {
  * @Author: youzhao.zhou
  * @Date: 2021-08-19 16:51:33
  * @Last Modified by: youzhao.zhou
- * @Last Modified time: 2021-09-08 20:25:22
+ * @Last Modified time: 2021-09-08 21:01:35
  * @Description 统一返回格式
  */
 /**
@@ -81,7 +81,7 @@ var ReturnData = /** @class */ (function () {
     };
     /**
      * 判断是否成功
-     * @param {ReturnData} data
+     * @param {any} data
      * @returns boolean
      */
     ReturnData.isOk = function (data) {

@@ -21,12 +21,12 @@ export default class ReturnData<T = any> {
     setMsg(msg: string): void;
     /**
      * 判断是否成功
-     * @param {ReturnData} data
+     * @param {any} data
      * @returns boolean
      */
-    static isOk(data: ReturnData): boolean;
-    static isFail(data: ReturnData): boolean;
-    static isDeny(data: ReturnData): boolean;
+    static isOk(data: any): boolean;
+    static isFail(data: any): boolean;
+    static isDeny(data: any): boolean;
     /**
      * 返回成功
      * @param data
