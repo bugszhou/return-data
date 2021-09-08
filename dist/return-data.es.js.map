@@ -1,0 +1,1 @@
+{"version":3,"file":"return-data.es.js","sources":["../src/ReturnData.ts"],"sourcesContent":["export default function index() {\n  return \"return-data\";\n}"],"names":[],"mappings":"SAAwB,KAAK;IAC3B,OAAO,aAAa,CAAC;AACvB;;;;"}
