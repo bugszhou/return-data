@@ -2,7 +2,7 @@
  * @Author: youzhao.zhou
  * @Date: 2021-08-19 16:51:33
  * @Last Modified by: youzhao.zhou
- * @Last Modified time: 2021-09-08 20:25:22
+ * @Last Modified time: 2021-09-08 21:01:35
  * @Description 统一返回格式
  */
 
@@ -55,18 +55,18 @@ export default class ReturnData<T = any> {
 
   /**
    * 判断是否成功
-   * @param {ReturnData} data
+   * @param {any} data
    * @returns boolean
    */
-  static isOk(data: ReturnData): boolean {
+  static isOk(data: any): boolean {
     return getStatusIsFunction(data) && data.getStatus() === "ok";
   }
 
-  static isFail(data: ReturnData): boolean {
+  static isFail(data: any): boolean {
     return getStatusIsFunction(data) && data.getStatus() === "fail";
   }
 
-  static isDeny(data: ReturnData): boolean {
+  static isDeny(data: any): boolean {
     return getStatusIsFunction(data) && data.getStatus() === "deny";
   }
 
