@@ -1,6 +1,6 @@
 {
     "name": "return-data",
-    "version": "0.0.5",
+    "version": "0.0.3",
     "description": "数据返回格式",
     "author": "yiri.zhou",
     "main": "dist/return-data.min.js",
@@ -14,6 +14,7 @@
         "build": "tsc --module commonjs && rollup -c rollup.config.ts",
         "prepublish": "npm run build",
         "commit": "git-cz --disable-emoji",
+        "install": "npm run husky",
         "husky": "husky install && npm run commit-msg && npm run pre-push",
         "commit-msg": "husky add .husky/commit-msg 'npx --no-install commitlint --edit $1'",
         "pre-push": "husky add .husky/pre-push 'npm run test'",
