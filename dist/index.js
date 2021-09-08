@@ -83,4 +83,4 @@ exports.default = ReturnData;
 function getStatusIsFunction(param) {
     return param && typeof param.getStatus === "function";
 }
-//# sourceMappingURL=ReturnData.js.map
+//# sourceMappingURL=index.js.map
