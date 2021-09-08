@@ -2,11 +2,13 @@
  * @Author: youzhao.zhou
  * @Date: 2021-08-19 16:51:33
  * @Last Modified by: youzhao.zhou
- * @Last Modified time: 2021-09-08 17:17:20
+ * @Last Modified time: 2021-09-08 20:25:22
  * @Description 统一返回格式
  */
 
-import { IReturnData } from "./BaseReturn";
+import BaseReturn, { IReturnData } from "./BaseReturn";
+
+export { BaseReturn };
 
 /**
  * 统一返回格式

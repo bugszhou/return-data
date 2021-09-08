@@ -1,4 +1,5 @@
-import { IReturnData } from "./BaseReturn";
+import BaseReturn, { IReturnData } from "./BaseReturn";
+export { BaseReturn };
 /**
  * 统一返回格式
  */

@@ -18,7 +18,7 @@ export default {
       name: "ReturnData",
       format: "umd",
       sourcemap: true,
-      exports: "default",
+      exports: "named",
       compact: true,
       plugins: [terser()],
     },
