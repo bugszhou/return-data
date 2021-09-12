@@ -45,6 +45,14 @@ export default class BaseReturn<IData = any> implements IReturnData {
     return param && typeof param.getStatus === "function";
   }
 
+  static getStatusValue(obj: any) {
+    if (BaseReturn.getStatusIsFunction(obj)) {
+      return obj.getStatus();
+    }
+
+    return "";
+  }
+
   /**
    * 判断是否成功
    * @param {any} data

@@ -15,6 +15,7 @@ export default class BaseReturn<IData = any> implements IReturnData {
     getData(): IData | null;
     getMsg(): string;
     static getStatusIsFunction(param: any): any;
+    static getStatusValue(obj: any): any;
     /**
      * 判断是否成功
      * @param {any} data

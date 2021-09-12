@@ -31,6 +31,12 @@ var BaseReturn = /** @class */ (function () {
     BaseReturn.getStatusIsFunction = function (param) {
         return param && typeof param.getStatus === "function";
     };
+    BaseReturn.getStatusValue = function (obj) {
+        if (BaseReturn.getStatusIsFunction(obj)) {
+            return obj.getStatus();
+        }
+        return "";
+    };
     /**
      * 判断是否成功
      * @param {any} data
