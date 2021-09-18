@@ -8,6 +8,7 @@ var BaseReturn = /** @class */ (function () {
         this.status = "";
         this.msg = "";
         this.data = null;
+        this.extraData = null;
         this.status = status;
         this.msg = msg;
         this.data = data;
@@ -29,6 +30,12 @@ var BaseReturn = /** @class */ (function () {
     };
     BaseReturn.prototype.getMsg = function () {
         return this.msg;
+    };
+    BaseReturn.prototype.getExtraData = function () {
+        return this.extraData;
+    };
+    BaseReturn.prototype.setExtraData = function (data) {
+        this.extraData = data;
     };
     BaseReturn.getStatusIsFunction = function (param) {
         return param && typeof param.getStatus === "function";

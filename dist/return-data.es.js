@@ -6,6 +6,7 @@ var BaseReturn = /** @class */ (function () {
         this.status = "";
         this.msg = "";
         this.data = null;
+        this.extraData = null;
         this.status = status;
         this.msg = msg;
         this.data = data;
@@ -27,6 +28,12 @@ var BaseReturn = /** @class */ (function () {
     };
     BaseReturn.prototype.getMsg = function () {
         return this.msg;
+    };
+    BaseReturn.prototype.getExtraData = function () {
+        return this.extraData;
+    };
+    BaseReturn.prototype.setExtraData = function (data) {
+        this.extraData = data;
     };
     BaseReturn.getStatusIsFunction = function (param) {
         return param && typeof param.getStatus === "function";
@@ -69,6 +76,7 @@ var ReturnData = /** @class */ (function () {
         if (data === void 0) { data = null; }
         if (msg === void 0) { msg = "success"; }
         this.msg = "";
+        this.extraData = null;
         this.status = status;
         this.data = data;
         this.msg = msg;
@@ -84,6 +92,12 @@ var ReturnData = /** @class */ (function () {
     };
     ReturnData.prototype.setMsg = function (msg) {
         this.msg = msg;
+    };
+    ReturnData.prototype.getExtraData = function () {
+        return this.extraData;
+    };
+    ReturnData.prototype.setExtraData = function (data) {
+        this.extraData = data;
     };
     /**
      * 判断是否成功

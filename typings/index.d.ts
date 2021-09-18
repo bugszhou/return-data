@@ -14,11 +14,14 @@ export default class ReturnData<T = any> {
     private status;
     private data;
     private msg;
+    private extraData;
     constructor(status: string, data?: T | null | undefined, msg?: string);
     getStatus(): string;
     getData(): T | null;
     getMsg(): string;
     setMsg(msg: string): void;
+    getExtraData(): any;
+    setExtraData(data: any): void;
     /**
      * 判断是否成功
      * @param {any} data

@@ -27,6 +27,8 @@ export default class ReturnData<T = any> {
 
   private msg = "";
 
+  private extraData: any = null;
+
   constructor(
     status: string,
     data: T | null | undefined = null,
@@ -51,6 +53,14 @@ export default class ReturnData<T = any> {
 
   setMsg(msg: string): void {
     this.msg = msg;
+  }
+
+  getExtraData() {
+    return this.extraData;
+  }
+
+  setExtraData(data: any) {
+    this.extraData = data;
   }
 
   /**

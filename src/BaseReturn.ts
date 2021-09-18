@@ -2,6 +2,14 @@ export interface IReturnData<T = any> {
   getStatus(): string;
   getData(): T;
   getMsg(): string;
+  /**
+   * 获取额外数据
+   */
+  getExtraData(): any;
+  /**
+   * 设置额外数据
+   */
+  setExtraData(data: any): void;
 }
 
 export default class BaseReturn<IData = any> implements IReturnData {
@@ -10,6 +18,8 @@ export default class BaseReturn<IData = any> implements IReturnData {
   private msg = "";
 
   private data: IData | null = null;
+
+  private extraData: any = null;
 
   constructor(status = "", data: IData | null | undefined = null, msg = "") {
     this.status = status;
@@ -39,6 +49,14 @@ export default class BaseReturn<IData = any> implements IReturnData {
 
   getMsg() {
     return this.msg;
+  }
+
+  getExtraData() {
+    return this.extraData;
+  }
+
+  setExtraData(data: any) {
+    this.extraData = data;
   }
 
   static getStatusIsFunction(param: any) {
