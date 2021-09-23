@@ -87,4 +87,12 @@ export default class BaseReturn<IData = any> implements IReturnData {
   static isDeny(data: any): boolean {
     return BaseReturn.getStatusIsFunction(data) && data.getStatus() === "deny";
   }
+
+  static hasData(param: any): boolean {
+    if (!param || typeof param.getData !== "function") {
+      return false;
+    }
+    const data = param.getData();
+    return !(typeof data === "undefined" || data === null);
+  }
 }

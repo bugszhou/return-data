@@ -30,6 +30,7 @@ export default class ReturnData<T = any> {
     static isOk(data: any): boolean;
     static isFail(data: any): boolean;
     static isDeny(data: any): boolean;
+    static hasData(param: any): boolean;
     /**
      * 返回成功
      * @param data

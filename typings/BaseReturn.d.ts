@@ -35,4 +35,5 @@ export default class BaseReturn<IData = any> implements IReturnData {
     static isOk(data: any): boolean;
     static isFail(data: any): boolean;
     static isDeny(data: any): boolean;
+    static hasData(param: any): boolean;
 }

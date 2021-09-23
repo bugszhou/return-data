@@ -58,6 +58,13 @@ var BaseReturn = /** @class */ (function () {
     BaseReturn.isDeny = function (data) {
         return BaseReturn.getStatusIsFunction(data) && data.getStatus() === "deny";
     };
+    BaseReturn.hasData = function (param) {
+        if (!param || typeof param.getData !== "function") {
+            return false;
+        }
+        var data = param.getData();
+        return !(typeof data === "undefined" || data === null);
+    };
     return BaseReturn;
 }());
 
@@ -112,6 +119,13 @@ var ReturnData = /** @class */ (function () {
     };
     ReturnData.isDeny = function (data) {
         return getStatusIsFunction(data) && data.getStatus() === "deny";
+    };
+    ReturnData.hasData = function (param) {
+        if (!param || typeof param.getData !== "function") {
+            return false;
+        }
+        var data = param.getData();
+        return !(typeof data === "undefined" || data === null);
     };
     /**
      * 返回成功

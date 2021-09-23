@@ -80,6 +80,14 @@ export default class ReturnData<T = any> {
     return getStatusIsFunction(data) && data.getStatus() === "deny";
   }
 
+  static hasData(param: any): boolean {
+    if (!param || typeof param.getData !== "function") {
+      return false;
+    }
+    const data = param.getData();
+    return !(typeof data === "undefined" || data === null);
+  }
+
   /**
    * 返回成功
    * @param data
