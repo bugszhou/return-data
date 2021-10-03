@@ -63,10 +63,10 @@ export default class ReturnData<T = any> {
      * 返回拒绝
      * @returns ReturnData
      */
-    static deny(): ReturnData<null>;
+    static deny(msg?: string): ReturnData<null>;
     /**
      * 网络异常返回类
      * @returns ReturnData
      */
-    static networkError(): ReturnData<null>;
+    static networkError(msg?: string): ReturnData<null>;
 }

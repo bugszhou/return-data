@@ -105,15 +105,15 @@ var ReturnData = /** @class */ (function () {
      * 返回拒绝
      * @returns ReturnData
      */
-    ReturnData.deny = function () {
-        return new ReturnData("deny", null);
+    ReturnData.deny = function (msg) {
+        return new ReturnData("deny", null, msg || "");
     };
     /**
      * 网络异常返回类
      * @returns ReturnData
      */
-    ReturnData.networkError = function () {
-        return new ReturnData("NETWORK_ERROR", null, "网络异常，请重试");
+    ReturnData.networkError = function (msg) {
+        return new ReturnData("NETWORK_ERROR", null, msg || "网络异常，请重试");
     };
     return ReturnData;
 }());
