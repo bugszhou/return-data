@@ -137,16 +137,16 @@ export default class ReturnData<T = any> {
    * 返回拒绝
    * @returns ReturnData
    */
-  static deny() {
-    return new ReturnData("deny", null);
+  static deny(msg?: string) {
+    return new ReturnData("deny", null, msg || "");
   }
 
   /**
    * 网络异常返回类
    * @returns ReturnData
    */
-  static networkError() {
-    return new ReturnData("NETWORK_ERROR", null, "网络异常，请重试");
+  static networkError(msg?: string) {
+    return new ReturnData("NETWORK_ERROR", null, msg || "网络异常，请重试");
   }
 }
 
