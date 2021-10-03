@@ -1,6 +1,6 @@
 {
     "name": "return-data",
-    "version": "0.0.10",
+    "version": "0.1.0",
     "description": "数据返回格式",
     "author": "yiri.zhou",
     "main": "dist/return-data.min.js",
