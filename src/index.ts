@@ -80,12 +80,29 @@ export default class ReturnData<T = any> {
     return getStatusIsFunction(data) && data.getStatus() === "deny";
   }
 
+  /**
+   * 判断data是不是null或者undefined
+   * @param param
+   * @returns
+   */
   static hasData(param: any): boolean {
     if (!param || typeof param.getData !== "function") {
       return false;
     }
     const data = param.getData();
     return !(typeof data === "undefined" || data === null);
+  }
+
+  /**
+   * 是否是网络错误
+   * @param data
+   * @returns
+   */
+  static isNetWorkError(data: any) {
+    return (
+      BaseReturn.getStatusIsFunction(data) &&
+      data.getStatus() === "NETWORK_ERROR"
+    );
   }
 
   /**
@@ -122,6 +139,14 @@ export default class ReturnData<T = any> {
    */
   static deny() {
     return new ReturnData("deny", null);
+  }
+
+  /**
+   * 网络异常返回类
+   * @returns ReturnData
+   */
+  static networkError() {
+    return new ReturnData("NETWORK_ERROR", null, "网络异常，请重试");
   }
 }
 

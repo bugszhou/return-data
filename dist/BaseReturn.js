@@ -60,6 +60,20 @@ var BaseReturn = /** @class */ (function () {
     BaseReturn.isDeny = function (data) {
         return BaseReturn.getStatusIsFunction(data) && data.getStatus() === "deny";
     };
+    /**
+     * 是否是网络错误
+     * @param data
+     * @returns
+     */
+    BaseReturn.isNetWorkError = function (data) {
+        return (BaseReturn.getStatusIsFunction(data) &&
+            data.getStatus() === "NETWORK_ERROR");
+    };
+    /**
+     * 判断data是不是null或者undefined
+     * @param param
+     * @returns
+     */
     BaseReturn.hasData = function (param) {
         if (!param || typeof param.getData !== "function") {
             return false;

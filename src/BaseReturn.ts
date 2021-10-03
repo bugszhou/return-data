@@ -88,6 +88,23 @@ export default class BaseReturn<IData = any> implements IReturnData {
     return BaseReturn.getStatusIsFunction(data) && data.getStatus() === "deny";
   }
 
+  /**
+   * 是否是网络错误
+   * @param data
+   * @returns
+   */
+  static isNetWorkError(data: any) {
+    return (
+      BaseReturn.getStatusIsFunction(data) &&
+      data.getStatus() === "NETWORK_ERROR"
+    );
+  }
+
+  /**
+   * 判断data是不是null或者undefined
+   * @param param
+   * @returns
+   */
   static hasData(param: any): boolean {
     if (!param || typeof param.getData !== "function") {
       return false;

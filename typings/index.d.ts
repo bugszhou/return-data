@@ -30,7 +30,18 @@ export default class ReturnData<T = any> {
     static isOk(data: any): boolean;
     static isFail(data: any): boolean;
     static isDeny(data: any): boolean;
+    /**
+     * 判断data是不是null或者undefined
+     * @param param
+     * @returns
+     */
     static hasData(param: any): boolean;
+    /**
+     * 是否是网络错误
+     * @param data
+     * @returns
+     */
+    static isNetWorkError(data: any): any;
     /**
      * 返回成功
      * @param data
@@ -53,4 +64,9 @@ export default class ReturnData<T = any> {
      * @returns ReturnData
      */
     static deny(): ReturnData<null>;
+    /**
+     * 网络异常返回类
+     * @returns ReturnData
+     */
+    static networkError(): ReturnData<null>;
 }

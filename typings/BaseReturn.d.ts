@@ -35,5 +35,16 @@ export default class BaseReturn<IData = any> implements IReturnData {
     static isOk(data: any): boolean;
     static isFail(data: any): boolean;
     static isDeny(data: any): boolean;
+    /**
+     * 是否是网络错误
+     * @param data
+     * @returns
+     */
+    static isNetWorkError(data: any): any;
+    /**
+     * 判断data是不是null或者undefined
+     * @param param
+     * @returns
+     */
     static hasData(param: any): boolean;
 }

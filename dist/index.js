@@ -55,12 +55,26 @@ var ReturnData = /** @class */ (function () {
     ReturnData.isDeny = function (data) {
         return getStatusIsFunction(data) && data.getStatus() === "deny";
     };
+    /**
+     * 判断data是不是null或者undefined
+     * @param param
+     * @returns
+     */
     ReturnData.hasData = function (param) {
         if (!param || typeof param.getData !== "function") {
             return false;
         }
         var data = param.getData();
         return !(typeof data === "undefined" || data === null);
+    };
+    /**
+     * 是否是网络错误
+     * @param data
+     * @returns
+     */
+    ReturnData.isNetWorkError = function (data) {
+        return (BaseReturn_1.default.getStatusIsFunction(data) &&
+            data.getStatus() === "NETWORK_ERROR");
     };
     /**
      * 返回成功
@@ -93,6 +107,13 @@ var ReturnData = /** @class */ (function () {
      */
     ReturnData.deny = function () {
         return new ReturnData("deny", null);
+    };
+    /**
+     * 网络异常返回类
+     * @returns ReturnData
+     */
+    ReturnData.networkError = function () {
+        return new ReturnData("NETWORK_ERROR", null, "网络异常，请重试");
     };
     return ReturnData;
 }());
