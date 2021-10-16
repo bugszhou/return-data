@@ -148,6 +148,23 @@ export default class ReturnData<T = any> {
   static networkError(msg?: string) {
     return new ReturnData("NETWORK_ERROR", null, msg || "网络异常，请重试");
   }
+
+  /**
+   * 取消返回类
+   * @returns ReturnData
+   */
+  static cancel(msg?: string) {
+    return new ReturnData("CANCEL", null, msg || "网络异常，请重试");
+  }
+
+  /**
+   * 是否是取消返回
+   * @param data
+   * @returns
+   */
+  static isCancel(data: any) {
+    return BaseReturn.getStatusValue(data) === "CANCEL";
+  }
 }
 
 function getStatusIsFunction(param: any) {

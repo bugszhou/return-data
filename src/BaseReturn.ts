@@ -112,4 +112,21 @@ export default class BaseReturn<IData = any> implements IReturnData {
     const data = param.getData();
     return !(typeof data === "undefined" || data === null);
   }
+
+  /**
+   * 取消返回类
+   * @returns ReturnData
+   */
+  static cancel(msg?: string) {
+    return new this("CANCEL", null, msg || "网络异常，请重试");
+  }
+
+  /**
+   * 是否是取消返回
+   * @param data
+   * @returns
+   */
+  static isCancel(data: any) {
+    return BaseReturn.getStatusValue(data) === "CANCEL";
+  }
 }

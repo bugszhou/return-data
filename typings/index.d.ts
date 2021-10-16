@@ -69,4 +69,15 @@ export default class ReturnData<T = any> {
      * @returns ReturnData
      */
     static networkError(msg?: string): ReturnData<null>;
+    /**
+     * 取消返回类
+     * @returns ReturnData
+     */
+    static cancel(msg?: string): ReturnData<null>;
+    /**
+     * 是否是取消返回
+     * @param data
+     * @returns
+     */
+    static isCancel(data: any): boolean;
 }

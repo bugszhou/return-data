@@ -47,4 +47,15 @@ export default class BaseReturn<IData = any> implements IReturnData {
      * @returns
      */
     static hasData(param: any): boolean;
+    /**
+     * 取消返回类
+     * @returns ReturnData
+     */
+    static cancel(msg?: string): BaseReturn<null>;
+    /**
+     * 是否是取消返回
+     * @param data
+     * @returns
+     */
+    static isCancel(data: any): boolean;
 }

@@ -115,6 +115,21 @@ var ReturnData = /** @class */ (function () {
     ReturnData.networkError = function (msg) {
         return new ReturnData("NETWORK_ERROR", null, msg || "网络异常，请重试");
     };
+    /**
+     * 取消返回类
+     * @returns ReturnData
+     */
+    ReturnData.cancel = function (msg) {
+        return new ReturnData("CANCEL", null, msg || "网络异常，请重试");
+    };
+    /**
+     * 是否是取消返回
+     * @param data
+     * @returns
+     */
+    ReturnData.isCancel = function (data) {
+        return BaseReturn_1.default.getStatusValue(data) === "CANCEL";
+    };
     return ReturnData;
 }());
 exports.default = ReturnData;

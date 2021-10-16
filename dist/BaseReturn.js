@@ -81,6 +81,21 @@ var BaseReturn = /** @class */ (function () {
         var data = param.getData();
         return !(typeof data === "undefined" || data === null);
     };
+    /**
+     * 取消返回类
+     * @returns ReturnData
+     */
+    BaseReturn.cancel = function (msg) {
+        return new this("CANCEL", null, msg || "网络异常，请重试");
+    };
+    /**
+     * 是否是取消返回
+     * @param data
+     * @returns
+     */
+    BaseReturn.isCancel = function (data) {
+        return BaseReturn.getStatusValue(data) === "CANCEL";
+    };
     return BaseReturn;
 }());
 exports.default = BaseReturn;
