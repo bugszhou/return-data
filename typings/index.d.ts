@@ -41,7 +41,13 @@ export default class ReturnData<T = any> {
      * @param data
      * @returns
      */
-    static isNetWorkError(data: any): any;
+    static isNetWorkError(data: any): boolean;
+    /**
+     * 覆盖原有的逻辑
+     * @param data
+     * @returns
+     */
+    static cover<T = boolean>(keyName: string, value: (data: any) => T): void;
     /**
      * 返回成功
      * @param data

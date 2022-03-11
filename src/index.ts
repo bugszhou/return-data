@@ -111,7 +111,7 @@ export default class ReturnData<T = any> {
    * @returns
    */
   static cover<T = boolean>(keyName: string, value: (data: any) => T): void {
-    (BaseReturn as any)[keyName] = value;
+    (ReturnData as any)[keyName] = value;
   }
 
   /**

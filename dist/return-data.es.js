@@ -171,6 +171,14 @@ var ReturnData = /** @class */ (function () {
             data.getStatus() === "NETWORK_ERROR");
     };
     /**
+     * 覆盖原有的逻辑
+     * @param data
+     * @returns
+     */
+    ReturnData.cover = function (keyName, value) {
+        BaseReturn[keyName] = value;
+    };
+    /**
      * 返回成功
      * @param data
      * @returns ReturnData
