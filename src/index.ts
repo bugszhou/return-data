@@ -98,11 +98,20 @@ export default class ReturnData<T = any> {
    * @param data
    * @returns
    */
-  static isNetWorkError(data: any) {
+  static isNetWorkError(data: any): boolean {
     return (
       BaseReturn.getStatusIsFunction(data) &&
       data.getStatus() === "NETWORK_ERROR"
     );
+  }
+
+  /**
+   * 覆盖原有的逻辑
+   * @param data
+   * @returns
+   */
+  static cover<T = boolean>(keyName: string, value: (data: any) => T): void {
+    (BaseReturn as any)[keyName] = value;
   }
 
   /**
