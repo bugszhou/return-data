@@ -96,6 +96,21 @@ var BaseReturn = /** @class */ (function () {
     BaseReturn.isCancel = function (data) {
         return BaseReturn.getStatusValue(data) === "CANCEL";
     };
+    /**
+     * 中断类
+     * @returns ReturnData
+     */
+    BaseReturn.interrupt = function (msg) {
+        return new this("INTERRUPT", null, msg || "程序中断，请重试");
+    };
+    /**
+     * 是否是中断返回
+     * @param data
+     * @returns
+     */
+    BaseReturn.isInterrupt = function (data) {
+        return BaseReturn.getStatusValue(data) === "INTERRUPT";
+    };
     return BaseReturn;
 }());
 exports.default = BaseReturn;

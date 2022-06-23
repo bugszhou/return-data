@@ -58,4 +58,15 @@ export default class BaseReturn<IData = any> implements IReturnData {
      * @returns
      */
     static isCancel(data: any): boolean;
+    /**
+     * 中断类
+     * @returns ReturnData
+     */
+    static interrupt(msg?: string): BaseReturn<null>;
+    /**
+     * 是否是中断返回
+     * @param data
+     * @returns
+     */
+    static isInterrupt(data: any): boolean;
 }

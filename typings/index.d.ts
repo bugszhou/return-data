@@ -49,7 +49,7 @@ export default class ReturnData<T = any> {
      */
     static cover<T = boolean>(keyName: string, value: (data: any) => T): void;
     /**
-     * 返回成功
+     * 返回成功
      * @param data
      * @returns ReturnData
      */
@@ -75,6 +75,17 @@ export default class ReturnData<T = any> {
      * @returns ReturnData
      */
     static networkError(msg?: string): ReturnData<null>;
+    /**
+     * 中断类
+     * @returns ReturnData
+     */
+    static interrupt(msg?: string): ReturnData<null>;
+    /**
+     * 是否是中断返回
+     * @param data
+     * @returns
+     */
+    static isInterrupt(data: any): boolean;
     /**
      * 取消返回类
      * @returns ReturnData

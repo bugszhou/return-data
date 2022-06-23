@@ -129,4 +129,21 @@ export default class BaseReturn<IData = any> implements IReturnData {
   static isCancel(data: any) {
     return BaseReturn.getStatusValue(data) === "CANCEL";
   }
+
+  /**
+   * 中断类
+   * @returns ReturnData
+   */
+  static interrupt(msg?: string) {
+    return new this("INTERRUPT", null, msg || "程序中断，请重试");
+  }
+
+  /**
+   * 是否是中断返回
+   * @param data
+   * @returns
+   */
+  static isInterrupt(data: any) {
+    return BaseReturn.getStatusValue(data) === "INTERRUPT";
+  }
 }

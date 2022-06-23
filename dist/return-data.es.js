@@ -94,6 +94,21 @@ var BaseReturn = /** @class */ (function () {
     BaseReturn.isCancel = function (data) {
         return BaseReturn.getStatusValue(data) === "CANCEL";
     };
+    /**
+     * 中断类
+     * @returns ReturnData
+     */
+    BaseReturn.interrupt = function (msg) {
+        return new this("INTERRUPT", null, msg || "程序中断，请重试");
+    };
+    /**
+     * 是否是中断返回
+     * @param data
+     * @returns
+     */
+    BaseReturn.isInterrupt = function (data) {
+        return BaseReturn.getStatusValue(data) === "INTERRUPT";
+    };
     return BaseReturn;
 }());
 
@@ -176,10 +191,10 @@ var ReturnData = /** @class */ (function () {
      * @returns
      */
     ReturnData.cover = function (keyName, value) {
-        BaseReturn[keyName] = value;
+        ReturnData[keyName] = value;
     };
     /**
-     * 返回成功
+     * 返回成功
      * @param data
      * @returns ReturnData
      */
@@ -216,6 +231,21 @@ var ReturnData = /** @class */ (function () {
      */
     ReturnData.networkError = function (msg) {
         return new ReturnData("NETWORK_ERROR", null, msg || "网络异常，请重试");
+    };
+    /**
+     * 中断类
+     * @returns ReturnData
+     */
+    ReturnData.interrupt = function (msg) {
+        return new ReturnData("INTERRUPT", null, msg || "程序中断，请重试");
+    };
+    /**
+     * 是否是中断返回
+     * @param data
+     * @returns
+     */
+    ReturnData.isInterrupt = function (data) {
+        return BaseReturn.getStatusValue(data) === "INTERRUPT";
     };
     /**
      * 取消返回类

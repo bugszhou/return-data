@@ -82,10 +82,10 @@ var ReturnData = /** @class */ (function () {
      * @returns
      */
     ReturnData.cover = function (keyName, value) {
-        BaseReturn_1.default[keyName] = value;
+        ReturnData[keyName] = value;
     };
     /**
-     * 返回成功
+     * 返回成功
      * @param data
      * @returns ReturnData
      */
@@ -122,6 +122,21 @@ var ReturnData = /** @class */ (function () {
      */
     ReturnData.networkError = function (msg) {
         return new ReturnData("NETWORK_ERROR", null, msg || "网络异常，请重试");
+    };
+    /**
+     * 中断类
+     * @returns ReturnData
+     */
+    ReturnData.interrupt = function (msg) {
+        return new ReturnData("INTERRUPT", null, msg || "程序中断，请重试");
+    };
+    /**
+     * 是否是中断返回
+     * @param data
+     * @returns
+     */
+    ReturnData.isInterrupt = function (data) {
+        return BaseReturn_1.default.getStatusValue(data) === "INTERRUPT";
     };
     /**
      * 取消返回类

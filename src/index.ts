@@ -115,7 +115,7 @@ export default class ReturnData<T = any> {
   }
 
   /**
-   * 返回成功
+   * 返回成功
    * @param data
    * @returns ReturnData
    */
@@ -156,6 +156,23 @@ export default class ReturnData<T = any> {
    */
   static networkError(msg?: string) {
     return new ReturnData("NETWORK_ERROR", null, msg || "网络异常，请重试");
+  }
+
+  /**
+   * 中断类
+   * @returns ReturnData
+   */
+  static interrupt(msg?: string) {
+    return new ReturnData("INTERRUPT", null, msg || "程序中断，请重试");
+  }
+
+  /**
+   * 是否是中断返回
+   * @param data
+   * @returns
+   */
+  static isInterrupt(data: any) {
+    return BaseReturn.getStatusValue(data) === "INTERRUPT";
   }
 
   /**
