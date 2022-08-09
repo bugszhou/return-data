@@ -153,6 +153,21 @@ var ReturnData = /** @class */ (function () {
     ReturnData.isCancel = function (data) {
         return BaseReturn_1.default.getStatusValue(data) === "CANCEL";
     };
+    /**
+     * 顶级错误类
+     * @returns ReturnData
+     */
+    ReturnData.error = function (msg) {
+        return new this("ERROR", null, msg || "程序中断，请重试");
+    };
+    /**
+     * 是否是顶级错误
+     * @param data
+     * @returns
+     */
+    ReturnData.isError = function (data) {
+        return BaseReturn_1.default.getStatusValue(data) === "ERROR";
+    };
     return ReturnData;
 }());
 exports.default = ReturnData;

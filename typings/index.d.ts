@@ -97,4 +97,15 @@ export default class ReturnData<T = any> {
      * @returns
      */
     static isCancel(data: any): boolean;
+    /**
+     * 顶级错误类
+     * @returns ReturnData
+     */
+    static error(msg?: string): ReturnData<null>;
+    /**
+     * 是否是顶级错误
+     * @param data
+     * @returns
+     */
+    static isError(data: any): boolean;
 }

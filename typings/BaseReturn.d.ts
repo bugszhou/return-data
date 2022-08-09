@@ -69,4 +69,15 @@ export default class BaseReturn<IData = any> implements IReturnData {
      * @returns
      */
     static isInterrupt(data: any): boolean;
+    /**
+     * 顶级错误类
+     * @returns ReturnData
+     */
+    static error(msg?: string): BaseReturn<null>;
+    /**
+     * 是否是顶级错误
+     * @param data
+     * @returns
+     */
+    static isError(data: any): boolean;
 }

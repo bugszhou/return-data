@@ -191,6 +191,23 @@ export default class ReturnData<T = any> {
   static isCancel(data: any) {
     return BaseReturn.getStatusValue(data) === "CANCEL";
   }
+
+  /**
+   * 顶级错误类
+   * @returns ReturnData
+   */
+  static error(msg?: string) {
+    return new this("ERROR", null, msg || "程序中断，请重试");
+  }
+
+  /**
+   * 是否是顶级错误
+   * @param data
+   * @returns
+   */
+  static isError(data: any) {
+    return BaseReturn.getStatusValue(data) === "ERROR";
+  }
 }
 
 function getStatusIsFunction(param: any) {

@@ -109,6 +109,21 @@ var BaseReturn = /** @class */ (function () {
     BaseReturn.isInterrupt = function (data) {
         return BaseReturn.getStatusValue(data) === "INTERRUPT";
     };
+    /**
+     * 顶级错误类
+     * @returns ReturnData
+     */
+    BaseReturn.error = function (msg) {
+        return new this("ERROR", null, msg || "程序中断，请重试");
+    };
+    /**
+     * 是否是顶级错误
+     * @param data
+     * @returns
+     */
+    BaseReturn.isError = function (data) {
+        return BaseReturn.getStatusValue(data) === "ERROR";
+    };
     return BaseReturn;
 }());
 
@@ -261,6 +276,21 @@ var ReturnData = /** @class */ (function () {
      */
     ReturnData.isCancel = function (data) {
         return BaseReturn.getStatusValue(data) === "CANCEL";
+    };
+    /**
+     * 顶级错误类
+     * @returns ReturnData
+     */
+    ReturnData.error = function (msg) {
+        return new this("ERROR", null, msg || "程序中断，请重试");
+    };
+    /**
+     * 是否是顶级错误
+     * @param data
+     * @returns
+     */
+    ReturnData.isError = function (data) {
+        return BaseReturn.getStatusValue(data) === "ERROR";
     };
     return ReturnData;
 }());
