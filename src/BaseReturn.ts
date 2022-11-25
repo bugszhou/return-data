@@ -95,8 +95,9 @@ export default class BaseReturn<IData = any> implements IReturnData {
    */
   static isNetWorkError(data: any) {
     return (
-      BaseReturn.getStatusIsFunction(data) &&
-      data.getStatus() === "NETWORK_ERROR"
+      (BaseReturn.getStatusIsFunction(data) &&
+        data.getStatus() === "NETWORK_ERROR") ||
+      data?.status === "NETWORK_ERROR"
     );
   }
 

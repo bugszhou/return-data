@@ -100,8 +100,9 @@ export default class ReturnData<T = any> {
    */
   static isNetWorkError(data: any): boolean {
     return (
-      BaseReturn.getStatusIsFunction(data) &&
-      data.getStatus() === "NETWORK_ERROR"
+      (BaseReturn.getStatusIsFunction(data) &&
+        data.getStatus() === "NETWORK_ERROR") ||
+      data?.status === "NETWORK_ERROR"
     );
   }
 

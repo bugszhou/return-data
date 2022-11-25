@@ -66,8 +66,9 @@ var BaseReturn = /** @class */ (function () {
      * @returns
      */
     BaseReturn.isNetWorkError = function (data) {
-        return (BaseReturn.getStatusIsFunction(data) &&
-            data.getStatus() === "NETWORK_ERROR");
+        return ((BaseReturn.getStatusIsFunction(data) &&
+            data.getStatus() === "NETWORK_ERROR") ||
+            (data === null || data === void 0 ? void 0 : data.status) === "NETWORK_ERROR");
     };
     /**
      * 判断data是不是null或者undefined
