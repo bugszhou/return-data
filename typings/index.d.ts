@@ -108,4 +108,6 @@ export default class ReturnData<T = any> {
      * @returns
      */
     static isError(data: any): boolean;
+    static getStatusIsFunction(param: any): any;
+    static getStatusValue(obj: any): any;
 }

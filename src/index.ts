@@ -100,7 +100,7 @@ export default class ReturnData<T = any> {
    */
   static isNetWorkError(data: any): boolean {
     return (
-      (BaseReturn.getStatusIsFunction(data) &&
+      (ReturnData.getStatusIsFunction(data) &&
         data.getStatus() === "NETWORK_ERROR") ||
       data?.status === "NETWORK_ERROR"
     );
@@ -173,7 +173,7 @@ export default class ReturnData<T = any> {
    * @returns
    */
   static isInterrupt(data: any) {
-    return BaseReturn.getStatusValue(data) === "INTERRUPT";
+    return ReturnData.getStatusValue(data) === "INTERRUPT";
   }
 
   /**
@@ -190,7 +190,7 @@ export default class ReturnData<T = any> {
    * @returns
    */
   static isCancel(data: any) {
-    return BaseReturn.getStatusValue(data) === "CANCEL";
+    return ReturnData.getStatusValue(data) === "CANCEL";
   }
 
   /**
@@ -207,7 +207,19 @@ export default class ReturnData<T = any> {
    * @returns
    */
   static isError(data: any) {
-    return BaseReturn.getStatusValue(data) === "ERROR";
+    return ReturnData.getStatusValue(data) === "ERROR";
+  }
+
+  static getStatusIsFunction(param: any) {
+    return param && typeof param.getStatus === "function";
+  }
+
+  static getStatusValue(obj: any) {
+    if (ReturnData.getStatusIsFunction(obj)) {
+      return obj.getStatus();
+    }
+
+    return obj?.status ?? "";
   }
 }
 

@@ -73,7 +73,7 @@ var ReturnData = /** @class */ (function () {
      * @returns
      */
     ReturnData.isNetWorkError = function (data) {
-        return ((BaseReturn_1.default.getStatusIsFunction(data) &&
+        return ((ReturnData.getStatusIsFunction(data) &&
             data.getStatus() === "NETWORK_ERROR") ||
             (data === null || data === void 0 ? void 0 : data.status) === "NETWORK_ERROR");
     };
@@ -137,7 +137,7 @@ var ReturnData = /** @class */ (function () {
      * @returns
      */
     ReturnData.isInterrupt = function (data) {
-        return BaseReturn_1.default.getStatusValue(data) === "INTERRUPT";
+        return ReturnData.getStatusValue(data) === "INTERRUPT";
     };
     /**
      * 取消返回类
@@ -152,7 +152,7 @@ var ReturnData = /** @class */ (function () {
      * @returns
      */
     ReturnData.isCancel = function (data) {
-        return BaseReturn_1.default.getStatusValue(data) === "CANCEL";
+        return ReturnData.getStatusValue(data) === "CANCEL";
     };
     /**
      * 顶级错误类
@@ -167,7 +167,17 @@ var ReturnData = /** @class */ (function () {
      * @returns
      */
     ReturnData.isError = function (data) {
-        return BaseReturn_1.default.getStatusValue(data) === "ERROR";
+        return ReturnData.getStatusValue(data) === "ERROR";
+    };
+    ReturnData.getStatusIsFunction = function (param) {
+        return param && typeof param.getStatus === "function";
+    };
+    ReturnData.getStatusValue = function (obj) {
+        var _a;
+        if (ReturnData.getStatusIsFunction(obj)) {
+            return obj.getStatus();
+        }
+        return (_a = obj === null || obj === void 0 ? void 0 : obj.status) !== null && _a !== void 0 ? _a : "";
     };
     return ReturnData;
 }());
